@@ -97,6 +97,9 @@ In the configuration file there are detailed list of key-value pairs that config
    ```bash
    cd src/MemSum_Final/; python train.py -config_file_path config/pubmed_full/200dim/run0/training.config
    ```
+## Additional Info
+We provide the human evaluation raw data obtained from two human evaluation experiments as discussed in the main paper. Each line in the .jsonl file contains a record of a single evaluation, including: 1) document to be summarized, 2) gold summary, 3) summaries produced by two models, and 4) human evaluation ranking results of both summaries. The data is available in data/ folder.
+ 
 ## References
 When using our code or models for your application, please cite the following paper:
 ```
