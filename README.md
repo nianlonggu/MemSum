@@ -103,10 +103,18 @@ We provide the human evaluation raw data obtained from two human evaluation expe
 ## References
 When using our code or models for your application, please cite the following paper:
 ```
-@article{gu2021memsum,
-  title={MemSum: Extractive Summarization of Long Documents using Multi-step Episodic Markov Decision Processes},
-  author={Gu, Nianlong and Ash, Elliott and Hahnloser, Richard HR},
-  journal={arXiv preprint arXiv:2107.08929},
-  year={2021}
+@inproceedings{gu-etal-2022-memsum,
+    title = "{M}em{S}um: Extractive Summarization of Long Documents Using Multi-Step Episodic {M}arkov Decision Processes",
+    author = "Gu, Nianlong  and
+      Ash, Elliott  and
+      Hahnloser, Richard",
+    booktitle = "Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+    month = may,
+    year = "2022",
+    address = "Dublin, Ireland",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2022.acl-long.450",
+    pages = "6507--6522",
+    abstract = "We introduce MemSum (Multi-step Episodic Markov decision process extractive SUMmarizer), a reinforcement-learning-based extractive summarizer enriched at each step with information on the current extraction history. When MemSum iteratively selects sentences into the summary, it considers a broad information set that would intuitively also be used by humans in this task: 1) the text content of the sentence, 2) the global text context of the rest of the document, and 3) the extraction history consisting of the set of sentences that have already been extracted. With a lightweight architecture, MemSum obtains state-of-the-art test-set performance (ROUGE) in summarizing long documents taken from PubMed, arXiv, and GovReport. Ablation studies demonstrate the importance of local, global, and history information. A human evaluation confirms the high quality and low redundancy of the generated summaries, stemming from MemSum{'}s awareness of extraction history.",
 }
 ```
