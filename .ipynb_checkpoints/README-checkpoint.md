@@ -23,7 +23,8 @@ Tested on Ubuntu 20.04 and Ubuntu 18.04
 
 ## Step 0: Download all datasets and trained model checkpoints
 
-Download the datasets and trained model from the Google Drive [LINK](https://drive.google.com/drive/folders/1X1KNkP-BW_exuTYD94BnlwWs9g0ajJ78?usp=sharing).
+Download the datasets and trained model from the [Google Drive LINK](https://drive.google.com/drive/folders/1X1KNkP-BW_exuTYD94BnlwWs9g0ajJ78?usp=sharing).
+
 Put the "data/" folder and the "model/" folder under the same folder as the "src/" folder. The final structure looks like:
 
 ```
