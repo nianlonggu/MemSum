@@ -1,5 +1,5 @@
 # MemSum
-Code for ACL 2022 paper: MemSum: Extractive Summarization of Long Documents Using Multi-Step Episodic Markov Decision Processes.
+Code for ACL 2022 paper: [MemSum: Extractive Summarization of Long Documents Using Multi-Step Episodic Markov Decision Processes](https://aclanthology.org/2022.acl-long.450/).
 
 # Update 28-07-2022
 
