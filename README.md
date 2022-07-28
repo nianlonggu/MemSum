@@ -26,7 +26,7 @@ Tested on Ubuntu 20.04 and Ubuntu 18.04
 Download the datasets and trained model from the Google Drive [LINK](https://drive.google.com/drive/folders/1X1KNkP-BW_exuTYD94BnlwWs9g0ajJ78?usp=sharing).
 Put the "data/" folder and the "model/" folder under the same folder as the "src/" folder. The final structure looks like:
 
-
+```
 MemSum
 ├── src
 │   ├── data_preprocessing
@@ -54,7 +54,7 @@ MemSum
 │   │   ├── pubmed_truncated
 ├── summarizers.py
 └── README.md
-
+```
 
 ## Step 1: Set up environment
 1. create an Anaconda environment, with a name e.g. memsum
@@ -144,14 +144,7 @@ evaluate( memsum_pubmed, test_corpus_pubmed, 0.6, 7, rouge_cal )
 
     100%|██████████| 6658/6658 [10:05<00:00, 10.99it/s]
 
-
-
-
-
     array([0.49260137, 0.22916328, 0.44415123])
-
-
-
 
 ```python
 evaluate( memsum_pubmed_truncated, test_corpus_pubmed_truncated, 0.8, 7, rouge_cal )
@@ -159,14 +152,7 @@ evaluate( memsum_pubmed_truncated, test_corpus_pubmed_truncated, 0.8, 7, rouge_c
 
     100%|██████████| 5025/5025 [04:11<00:00, 19.97it/s]
 
-
-
-
-
     array([0.43079567, 0.16707743, 0.38297921])
-
-
-
 
 ```python
 evaluate( memsum_arxiv, test_corpus_arxiv, 0.5, 5, rouge_cal )
@@ -174,13 +160,7 @@ evaluate( memsum_arxiv, test_corpus_arxiv, 0.5, 5, rouge_cal )
 
     100%|██████████| 6440/6440 [08:28<00:00, 12.66it/s]
 
-
-
-
-
     array([0.47946925, 0.19970128, 0.42075852])
-
-
 
 
 ```python
@@ -189,12 +169,7 @@ evaluate( memsum_gov_report, test_corpus_gov_report, 0.6, 22, rouge_cal )
 
     100%|██████████| 973/973 [04:44<00:00,  3.41it/s]
 
-
-
-
-
     array([0.59445629, 0.28507926, 0.56677073])
-
 
 ```python
 
@@ -210,7 +185,53 @@ For example, if we want to train the full MemSum model on the PubMed dataset, we
    ```
 <!-- ## Additional Info
 We provide the human evaluation raw data obtained from two human evaluation experiments as discussed in the main paper. Each line in the .jsonl file contains a record of a single evaluation, including: 1) document to be summarized, 2) gold summary, 3) summaries produced by two models, and 4) human evaluation ranking results of both summaries. The data is available in data/ folder. -->
+
+
+## Addition Info: Code for obtaining the greedy summary of a document, and creating High-ROUGE episodes for training the model.
+
  
+```python
+from src.data_preprocessing.MemSum.utils import greedy_extract
+import json
+```
+
+```python
+with open("data/pubmed/val_PUBMED.jsonl","r") as f:
+    for line in f:
+        break
+example_data = json.loads(line)
+print(example_data.keys())
+```
+    dict_keys(['summary', 'text', 'sorted_indices'])
+
+
+We can extract the oracle summary by calling the function greedy_extract and set beamsearch_size = 1
+```python
+greedy_extract( example_data["text"], example_data["summary"], beamsearch_size = 1 )[0]
+```
+    [[72, 11, 20, 134, 102, 79, 9, 99, 39, 34, 44], 0.4777551272557634]
+
+Here the first element is a list of sentence indices in the document, the second element is the avarge of Rouge F1 scores.
+
+By setting beamsearch_size = 2 or more, we can extract the high-rouge episodes, a candidate list of extracted sentences' indices and the corresponding scores that can be used for training models
+
+```python
+greedy_extract( example_data["text"], example_data["summary"], beamsearch_size = 2 )
+```
+    [[[72, 11, 20, 134, 102, 79, 9, 99, 39, 34, 44], 0.4777551272557634],
+     [[72, 11, 20, 134, 102, 79, 9, 99, 39, 34, 74], 0.4777551272557634],
+     [[72, 11, 20, 134, 102, 79, 9, 99, 69, 34, 44], 0.4777551272557634],
+     [[72, 11, 20, 134, 102, 79, 9, 99, 69, 34, 74], 0.4777551272557634],
+     [[72, 11, 20, 134, 102, 79, 9, 99, 39, 44, 116, 34], 0.4775433538646387],
+     [[72, 11, 20, 134, 102, 79, 9, 99, 69, 44, 116, 34], 0.4775433538646387],
+     [[72, 11, 20, 134, 102, 79, 9, 69, 95, 99, 83], 0.47290795715372624],
+     [[72, 11, 20, 134, 102, 79, 9, 69, 95, 99, 44], 0.47290795715372624],
+     [[72, 11, 20, 134, 102, 79, 9, 69, 95, 44, 116, 99], 0.47283962445015093],
+     [[72, 11, 20, 134, 102, 79, 9, 69, 95, 44, 116, 34, 99], 0.4726851816645392]]
+
+In the folder src/data_preprocessing/MemSum/ there are scripts that can be directly called to obtain high-rouge episodes which works in parallel.
+
+
 ## References
 When using our code or models for your application, please cite the following paper:
 ```
