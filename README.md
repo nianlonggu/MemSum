@@ -5,7 +5,7 @@ Code for ACL 2022 paper: [MemSum: Extractive Summarization of Long Documents Usi
 
 1. Uploaded processed datasets used in this paper:
 
-The main datasets used in this project include PubMed, PubMed(truncated), arXiv and Gov-Report.
+The main datasets used in this project include PubMed, PubMed(truncated), arXiv and GovReport.
 Detailed statistics about these datasets are available in the paper.
 
 2. Uploaded trained model checkpoints used for the evaluation:
