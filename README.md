@@ -77,12 +77,7 @@ MemSum
    ```bash
    conda install pytorch cudatoolkit=11.3 -c pytorch -y
    ```
-3. Download pretrained word embedding.
 
-   We provide a trained MemSum model on PubMed dataset. In order to use this model, we need to download the pretrained GLOVE word embedding from the official website and add them to MemSum using the following script. This command takes time, as we need to first download and the unzip GloVe embeddings.
-   ```bash
-   python download_and_load_word_embedding.py
-   ```
 ## Step 3: Testing trained model on a given dataset
 For example, the following command test the performance of the full MemSum model. Berfore runing these codes, make sure current working directory is the main directory "MemSum/" where the .py file summarizers.py is located.
 
