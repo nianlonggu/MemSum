@@ -386,7 +386,7 @@ for epoch in range( current_epoch, num_of_epochs ):
             # validation
             val_score_list = []
             with torch.no_grad():
-                for batch in tqdm(val_data_loader):
+                for batch in val_data_loader:
                     val_score_list += validation_iteration(batch)
 
             val_rouge1, val_rouge2, val_rougeL = list( zip( *val_score_list ) )
