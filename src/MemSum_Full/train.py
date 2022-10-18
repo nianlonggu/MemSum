@@ -380,7 +380,7 @@ for epoch in range( current_epoch, num_of_epochs ):
                 print("No progress is being made, stop training!")
                 sys.exit(0)
         
-        if validate_every != 0 and  current_batch % validate_every == 0:
+        if ( validate_every != 0 and  current_batch % validate_every == 0 ) or count == len(train_data_loader) - 1:
             print("Starting validation ...")
             LOG("Starting validation ...")
             # validation
@@ -398,7 +398,7 @@ for epoch in range( current_epoch, num_of_epochs ):
             LOG("val: %.4f, %.4f, %.4f"%(avg_val_rouge1, avg_val_rouge2, avg_val_rougeL))
             # scheduler.step( (avg_val_rouge1 + avg_val_rouge2 +avg_val_rougeL)/3 )
 
-        if  current_batch % save_every == 0:  
+        if  current_batch % save_every == 0 or count == len(train_data_loader) - 1:  
             save_model(  { 
                 "current_batch":current_batch,
                 "local_sentence_encoder": local_sentence_encoder_ema,
