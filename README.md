@@ -1,3 +1,5 @@
+<a href="https://colab.research.google.com/github/nianlonggu/MemSum/blob/main/Data_processing_training_and_testing_for_MemSum.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+
 # MemSum
 Code for ACL 2022 paper: [MemSum: Extractive Summarization of Long Documents Using Multi-Step Episodic Markov Decision Processes](https://aclanthology.org/2022.acl-long.450/).
 
