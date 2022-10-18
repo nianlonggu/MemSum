@@ -8,6 +8,12 @@ Code for ACL 2022 paper: [MemSum: Extractive Summarization of Long Documents Usi
 Added the instruction on how to process training / validation / test set of custom data and step-by-step intro on how to train and test the model.
 
 We provided a google colab notebook:
+https://github.com/nianlonggu/MemSum/blob/main/Data_processing_training_and_testing_for_MemSum.ipynb
+WIthin this nodebook you can simply run the codes line by line for the whole data preprocessing training and testing pipeline.
+
+You can also open it by clicking:
+<a href="https://colab.research.google.com/github/nianlonggu/MemSum/blob/main/Data_processing_training_and_testing_for_MemSum.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+
 
 
 # Update 28-07-2022
