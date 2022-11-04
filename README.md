@@ -226,6 +226,8 @@ Here the first element is a list of sentence indices in the document, the second
 
 By setting beamsearch_size = 2 or more, we can extract the high-rouge episodes, a candidate list of extracted sentences' indices and the corresponding scores that can be used for training models
 
+** Note: both example_data["text"] and example_data["summary"] are list of sentences, please do not join the sentence list into a string  **
+
 ```python
 greedy_extract( example_data["text"], example_data["summary"], beamsearch_size = 2 )
 ```
