@@ -3,6 +3,10 @@
 # MemSum
 Code for ACL 2022 paper: [MemSum: Extractive Summarization of Long Documents Using Multi-Step Episodic Markov Decision Processes](https://aclanthology.org/2022.acl-long.450/).
 
+# Update 04-11-2022
+
+Add additional information on how to call the greedy extract method: both the text and the summary are a list of sentences
+
 # Update 18-10-2022
 
 Added the instruction on how to process training / validation / test set of custom data and step-by-step intro on how to train and test the model.
