@@ -5,7 +5,7 @@ Code for ACL 2022 paper: [MemSum: Extractive Summarization of Long Documents Usi
 
 # Update 04-11-2022
 
-Add additional information on how to call the greedy extract method: both the text and the summary are a list of sentences
+Add additional information on how to call the greedy extract method: both the text and the summary are a list of sentences.
 
 # Update 18-10-2022
 
