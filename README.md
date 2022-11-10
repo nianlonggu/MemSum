@@ -1,13 +1,14 @@
+# MemSum: Extractive Summarization of Long Documents Using Multi-Step Episodic Markov Decision Processes
+
 <a href="https://colab.research.google.com/github/nianlonggu/MemSum/blob/main/Data_processing_training_and_testing_for_MemSum.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-# MemSum
 Code for ACL 2022 paper: [MemSum: Extractive Summarization of Long Documents Using Multi-Step Episodic Markov Decision Processes](https://aclanthology.org/2022.acl-long.450/).
 
-# Update 04-11-2022
+## Update 04-11-2022
 
 Add additional information on how to call the greedy extract method: both the text and the summary are a list of sentences.
 
-# Update 18-10-2022
+## Update 18-10-2022
 
 Added the instruction on how to process training / validation / test set of custom data and step-by-step intro on how to train and test the model.
 
@@ -20,7 +21,7 @@ You can also open it by clicking:
 
 
 
-# Update 28-07-2022
+## Update 28-07-2022
 
 1. Uploaded processed datasets used in this paper:
 
@@ -37,10 +38,10 @@ The script is available at src/data_preprocessing/
 
 
 
-## System Info
+### System Info
 Tested on Ubuntu 20.04 and Ubuntu 18.04
 
-## Step 0: Download all datasets and trained model checkpoints
+### Step 0: Download all datasets and trained model checkpoints
 
 Download the datasets and trained model from the [Google Drive LINK](https://drive.google.com/drive/folders/1X1KNkP-BW_exuTYD94BnlwWs9g0ajJ78?usp=sharing).
 
@@ -76,7 +77,7 @@ MemSum
 └── README.md
 ```
 
-## Step 1: Set up environment
+### Step 1: Set up environment
 1. create an Anaconda environment, with a name e.g. memsum
    
    **Note**: Without further notification, the following commands need to be run in the working directory where this jupyter notebook is located.
@@ -87,7 +88,7 @@ MemSum
    ```bash
    source activate memsum
    ```
-## Step 2: Install dependencies, download word embeddings and load them to pretrained model
+### Step 2: Install dependencies, download word embeddings and load them to pretrained model
 1. Install dependencies via pip
    ```bash
    pip install -r requirements.txt
@@ -97,7 +98,7 @@ MemSum
    conda install pytorch cudatoolkit=11.3 -c pytorch -y
    ```
 
-## Step 3: Testing trained model on a given dataset
+### Step 3: Testing trained model on a given dataset
 For example, the following command test the performance of the full MemSum model. Berfore runing these codes, make sure current working directory is the main directory "MemSum/" where the .py file summarizers.py is located.
 
 
@@ -191,7 +192,7 @@ evaluate( memsum_gov_report, test_corpus_gov_report, 0.6, 22, rouge_cal )
 ```
 
 
-## Step 4: Training model from script
+### Step 4: Training model from script
 For example, if we want to train the full MemSum model on the PubMed dataset, we first change working directory to "src/MemSum_Full/", then run the python script "train.py".
 
 **Note** Here we used 4 GPUs, so n_device is 4.
@@ -202,7 +203,7 @@ For example, if we want to train the full MemSum model on the PubMed dataset, we
 We provide the human evaluation raw data obtained from two human evaluation experiments as discussed in the main paper. Each line in the .jsonl file contains a record of a single evaluation, including: 1) document to be summarized, 2) gold summary, 3) summaries produced by two models, and 4) human evaluation ranking results of both summaries. The data is available in data/ folder. -->
 
 
-## Addition Info: Code for obtaining the greedy summary of a document, and creating High-ROUGE episodes for training the model.
+### Addition Info: Code for obtaining the greedy summary of a document, and creating High-ROUGE episodes for training the model.
 
  
 ```python
@@ -249,7 +250,7 @@ greedy_extract( example_data["text"], example_data["summary"], beamsearch_size =
 In the folder src/data_preprocessing/MemSum/ there are scripts that can be directly called to obtain high-rouge episodes which works in parallel.
 
 
-## References
+### References
 When using our code or models for your application, please cite the following paper:
 ```
 @inproceedings{gu-etal-2022-memsum,
