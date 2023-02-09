@@ -14,6 +14,8 @@ Jupyter notebook: https://github.com/nianlonggu/MemSum/blob/main/MemSum_Human_Ev
 
 Run it on colab: <a href="https://colab.research.google.com/github/nianlonggu/MemSum/blob/main/MemSum_Human_Evaluation.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
+![human evaluation interface](images/human_evaluation_interface.png)
+
 
 ## Update 04-11-2022
 
