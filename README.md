@@ -6,9 +6,12 @@ Code for ACL 2022 paper on the topic of long document extractive summarization: 
 
 ## Update 09-02-2023
 
-Released the dataset for human evaluation (comparing MemSum with NeuSum), and released a colab notebook that contained the interface for conducting human evaluation. This can be used for reproducibility test.
+Released the dataset for human evaluation (comparing MemSum with NeuSum). Data is available in folder human_eval_results/. It recorded the samples we used for human evaluation and records of participants' labelling.
+
+Released a colab notebook that contained the interface for conducting human evaluation. This can be used for reproducibility test.
 
 Jupyter notebook: https://github.com/nianlonggu/MemSum/blob/main/MemSum_Human_Evaluation.ipynb
+
 Run it on colab: <a href="https://colab.research.google.com/github/nianlonggu/MemSum/blob/main/MemSum_Human_Evaluation.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 
