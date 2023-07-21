@@ -4,6 +4,18 @@
 
 Code for ACL 2022 paper on the topic of long document extractive summarization: [MemSum: Extractive Summarization of Long Documents Using Multi-Step Episodic Markov Decision Processes](https://aclanthology.org/2022.acl-long.450/).
 
+## Update 21-07-2023
+
+Provide a multi-process script for creating the training set.
+* Prepare the training set as a .jsonl file. Each line is a jsonified dictionary containing two keys:
+  - "text": a list of sentences of the document to be summarized;
+  - "summary": a list of sentences of the ground-truth summary.
+* Obtain the high-ROUGE episodes for training with the following command:
+  ```bash
+  cd src/data_preprocessing/MemSum && python get_high_rouge_episodes_mp.py -input_corpus_file_name INPUT_TRAINING_FILE.jsonl -output_corpus_file_name SAVE_TRAINING_FILE.jsonl -beamsearch_size 2 -n_processes NUM_PROCESSES
+  ```
+Then we can follow the training steps shown in [Training_Pipeline_MemSum.md](Training_Pipeline_MemSum.md) to train and test MemSum.
+
 ## Update 09-02-2023
 
 Released the dataset for human evaluation (comparing MemSum with NeuSum). Data is available in folder human_eval_results/. It recorded the samples we used for human evaluation and records of participants' labelling.
