@@ -224,8 +224,8 @@ def train_iteration(batch):
     global_context_embed = global_context_encoder( local_sen_embed, doc_mask , dropout_rate )
     
     doc_mask_np = doc_mask.detach().cpu().numpy()
-    remaining_mask_np = np.ones_like( doc_mask_np ).astype( np.bool ) | doc_mask_np
-    extraction_mask_np = np.zeros_like( doc_mask_np ).astype( np.bool ) | doc_mask_np
+    remaining_mask_np = np.ones_like( doc_mask_np ).astype( bool ) | doc_mask_np
+    extraction_mask_np = np.zeros_like( doc_mask_np ).astype( bool ) | doc_mask_np
     
     log_action_prob_list = []
     log_stop_prob_list = []
@@ -305,8 +305,8 @@ def validation_iteration(batch):
     
     num_documents = seqs.size(0)
     doc_mask = doc_mask.detach().cpu().numpy()
-    remaining_mask_np = np.ones_like( doc_mask ).astype( np.bool ) | doc_mask
-    extraction_mask_np = np.zeros_like( doc_mask ).astype( np.bool ) | doc_mask
+    remaining_mask_np = np.ones_like( doc_mask ).astype( bool ) | doc_mask
+    extraction_mask_np = np.zeros_like( doc_mask ).astype( bool ) | doc_mask
     
     
     done_list = []
