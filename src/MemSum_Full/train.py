@@ -233,7 +233,7 @@ def train_iteration(batch):
     done_list = []
     extraction_context_embed = None
     
-    for step in range(valid_sen_idxs.shape[1]):
+    for step in range( min(valid_sen_idxs.shape[1], max_extracted_sentences_per_document ) ):
         remaining_mask = torch.from_numpy( remaining_mask_np ).to(device)
         extraction_mask = torch.from_numpy( extraction_mask_np ).to(device)
         if step > 0:
