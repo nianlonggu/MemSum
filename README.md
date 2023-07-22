@@ -107,7 +107,7 @@ MemSum
    
    **Note**: Without further notification, the following commands need to be run in the working directory where this jupyter notebook is located.
    ```bash
-   conda create -n memsum python=3.7
+   conda create -n memsum python=3.10
    ```
 2. activate this environment
    ```bash
