@@ -201,7 +201,7 @@ Note:
 
 
 ```python
-!cd src/MemSum_Full; python train.py -training_corpus_file_name ../../data/custom_data/train_CUSTOM_labelled.jsonl -validation_corpus_file_name ../../data/custom_data/val_CUSTOM_raw.jsonl -model_folder ../../model/MemSum_Full/custom_data/200dim/run0/ -log_folder ../../log/MemSum_Full/custom_data/200dim/run0/ -vocabulary_file_name ../../model/glove/vocabulary_200dim.pkl -pretrained_unigram_embeddings_file_name ../../model/glove/unigram_embeddings_200dim.pkl -max_seq_len 100 -max_doc_len 500 -num_of_epochs 10 -save_every 1000 -n_device 1 -batch_size_per_device 4 -max_extracted_sentences_per_document 7 -moving_average_decay 0.999 -p_stop_thres 0.6
+!cd src/MemSum_Full; python train.py -training_corpus_file_name ../../data/custom_data/train_CUSTOM_labelled.jsonl -validation_corpus_file_name ../../data/custom_data/val_CUSTOM_raw.jsonl -model_folder ../../model/MemSum_Full/custom_data/200dim/run0/ -log_folder ../../log/MemSum_Full/custom_data/200dim/run0/ -vocabulary_file_name ../../model/glove/vocabulary_200dim.pkl -pretrained_unigram_embeddings_file_name ../../model/glove/unigram_embeddings_200dim.pkl -max_seq_len 100 -max_doc_len 500 -num_of_epochs 10 -save_every 1000 -validate_every 1000 -n_device 1 -batch_size_per_device 4 -max_extracted_sentences_per_document 7 -moving_average_decay 0.999 -p_stop_thres 0.6
 ```
 
     100it [00:00, 10630.33it/s]
