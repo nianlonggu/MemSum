@@ -118,9 +118,9 @@ MemSum
    ```bash
    pip install -r requirements.txt
    ```
-2. Install pytorch (GPU version). (Here the correct cuda version need to be specified, here we used torch version==1.11.0)
+2. Install pytorch (GPU version). 
    ```bash
-   conda install pytorch cudatoolkit=11.3 -c pytorch -y
+   pip install torch torchvision torchaudio
    ```
 
 ### Step 3: Testing trained model on a given dataset
