@@ -208,10 +208,9 @@ rouge_cal = rouge_scorer.RougeScorer(['rouge1','rouge2', 'rougeLsum'], use_stemm
 
 
 def train_iteration(batch):
-    seqs, doc_mask, selected_y_label, selected_score, valid_sen_idxs = batch
+    seqs, doc_mask, selected_score, valid_sen_idxs = batch
     seqs = seqs.to(device)
     doc_mask = doc_mask.to(device)
-    selected_y_label = selected_y_label.to(device)
     selected_score = selected_score.to(device)
     valid_sen_idxs = valid_sen_idxs.to(device)
     
