@@ -89,16 +89,12 @@ class ExtractionTrainingDataset(Dataset):
         np.random.shuffle( valid_sen_idxs )
 
         valid_sen_idxs = valid_sen_idxs[ valid_sen_idxs < num_sentences_in_doc ]
-        selected_y_label = np.zeros( num_sentences_in_doc )
-        selected_y_label[ valid_sen_idxs ] = 1
         selected_score = scores[ rand_idx ]
         
 
         valid_sen_idxs = valid_sen_idxs[:self.max_doc_len]
         valid_sen_idxs = np.array(valid_sen_idxs.tolist() + [-1] * ( self.max_doc_len - len(valid_sen_idxs)))
 
-
-        selected_y_label = np.array( selected_y_label.tolist() + [0] * (self.max_doc_len - num_sentences_in_doc) )
         sentences += [""] * ( self.max_doc_len - num_sentences_in_doc )
         
         doc_mask = np.array(  [ True if sen.strip() == "" else False for sen in  sentences   ]  )
@@ -107,7 +103,7 @@ class ExtractionTrainingDataset(Dataset):
         seqs = np.asarray( seqs )
 
 
-        return seqs, doc_mask, selected_y_label, selected_score, valid_sen_idxs
+        return seqs, doc_mask, selected_score, valid_sen_idxs
 
 
 class ExtractionValidationDataset(Dataset):
