@@ -1,0 +1,10 @@
+.DS_Store
+.ipynb_checkpoints/
+__pycache__/
+log/
+model/
+data/arxiv/
+data/gov-report/
+data/pubmed/
+data/truncated-pubmed/
+data/custom_data/train.jsonl

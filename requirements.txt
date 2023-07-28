@@ -2,3 +2,10 @@ numpy
 tqdm
 rouge_score
 pyrouge
+transformers
+jupyterlab
+datasets
+wget
+nltk
+ipywidgets
+scipy

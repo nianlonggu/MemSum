@@ -22,8 +22,7 @@ def update_moving_average( m_ema, m, decay ):
         for param_m_ema, param_m in zip( param_dict_m_ema, param_dict_m ):
             param_m_ema.copy_( decay * param_m_ema + (1-decay) *  param_m )
 
-def LOG( info, end="\n" ):
-    global log_out_file
+def LOG( info, log_out_file, end="\n" ):
     with open( log_out_file, "a" ) as f:
         f.write( info + end )
 
@@ -108,7 +107,9 @@ if not os.path.exists( log_folder ):
     os.makedirs(log_folder)
 if not os.path.exists( model_folder ):
     os.makedirs(model_folder)
-log_out_file = log_folder + "/train.log"
+    
+train_log_out_file = log_folder + "/train.log"
+val_log_out_file = log_folder + "/val.log"
 
 training_corpus = load_corpus( training_corpus_file_name, True )
 validation_corpus = load_corpus( validation_corpus_file_name, False )
@@ -143,7 +144,7 @@ if ckpt is not None:
     global_context_encoder.load_state_dict( ckpt["global_context_encoder"] )
     extraction_context_decoder.load_state_dict( ckpt["extraction_context_decoder"] )
     extractor.load_state_dict( ckpt["extractor"] )
-    LOG("model restored!")
+    LOG("model restored!", train_log_out_file)
     print("model restored!")
 
 gpu_list = np.arange(n_device).tolist()
@@ -188,7 +189,7 @@ if ckpt is not None:
     try:
         optimizer.load_state_dict( ckpt["optimizer"] )
         scheduler.load_state_dict( ckpt["scheduler"] )
-        LOG("optimizer restored!")
+        LOG("optimizer restored!", train_log_out_file)
         print("optimizer restored!")
     except:
         pass
@@ -199,7 +200,7 @@ current_batch = 0
 if ckpt is not None:
     current_batch = ckpt["current_batch"]
     current_epoch = int( current_batch * batch_size_per_device * n_device / total_number_of_samples )
-    LOG("current_batch restored!")
+    LOG("current_batch restored!", train_log_out_file)
     print("current_batch restored!")
 
 np.random.seed()
@@ -370,7 +371,7 @@ for epoch in range( current_epoch, num_of_epochs ):
         current_batch +=1
         if current_batch % print_every == 0:
             current_learning_rate = get_lr( optimizer )[0]
-            LOG( "[current_batch: %05d] loss: %.3f, learning rate: %f"%( current_batch, running_loss/print_every,  current_learning_rate  ) )
+            LOG( "[current_batch: %05d] loss: %.3f, learning rate: %f"%( current_batch, running_loss/print_every,  current_learning_rate  ), train_log_out_file )
             print( "[current_batch: %05d] loss: %.3f, learning rate: %f"%( current_batch, running_loss/print_every, current_learning_rate  ) )
             os.system( "nvidia-smi > %s/gpu_usage.log"%( log_folder ) )
             running_loss = 0
@@ -381,7 +382,7 @@ for epoch in range( current_epoch, num_of_epochs ):
         
         if ( validate_every != 0 and  current_batch % validate_every == 0 ) or count == len(train_data_loader) - 1:
             print("Starting validation ...")
-            LOG("Starting validation ...")
+            LOG("Starting validation ...", train_log_out_file)
             # validation
             val_score_list = []
             with torch.no_grad():
@@ -393,8 +394,8 @@ for epoch in range( current_epoch, num_of_epochs ):
             avg_val_rouge1 = np.mean( val_rouge1 )
             avg_val_rouge2 = np.mean( val_rouge2 )
             avg_val_rougeL = np.mean( val_rougeL )
-            print("val: %.4f, %.4f, %.4f"%(avg_val_rouge1, avg_val_rouge2, avg_val_rougeL))
-            LOG("val: %.4f, %.4f, %.4f"%(avg_val_rouge1, avg_val_rouge2, avg_val_rougeL))
+            print("[current_batch: %05d] val: %.4f, %.4f, %.4f"%(current_batch, avg_val_rouge1, avg_val_rouge2, avg_val_rougeL))
+            LOG("[current_batch: %05d] val: %.4f, %.4f, %.4f"%(current_batch, avg_val_rouge1, avg_val_rouge2, avg_val_rougeL), val_log_out_file)
             # scheduler.step( (avg_val_rouge1 + avg_val_rouge2 +avg_val_rougeL)/3 )
 
         if  ( save_every != 0 and  current_batch % save_every == 0 ) or count == len(train_data_loader) - 1:  

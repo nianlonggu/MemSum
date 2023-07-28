@@ -1,10 +1,12 @@
-from src.MemSum.model import LocalSentenceEncoder as LocalSentenceEncoder_MemSum
-from src.MemSum.model import GlobalContextEncoder as GlobalContextEncoder_MemSum
-from src.MemSum.model import ExtractionContextDecoder as ExtractionContextDecoder_MemSum
-from src.MemSum.model import Extractor as Extractor_MemSum
-from src.MemSum.datautils import Vocab as Vocab_MemSum
-from src.MemSum.datautils import SentenceTokenizer as SentenceTokenizer_MemSum
+import os, sys
+sys.path.insert( 0, os.getcwd() )
 
+from .model import LocalSentenceEncoder as LocalSentenceEncoder_MemSum
+from .model import GlobalContextEncoder as GlobalContextEncoder_MemSum
+from .model import ExtractionContextDecoder as ExtractionContextDecoder_MemSum
+from .model import Extractor as Extractor_MemSum
+from .datautils import Vocab as Vocab_MemSum
+from .datautils import SentenceTokenizer as SentenceTokenizer_MemSum
 
 import torch.nn.functional as F
 from torch.distributions import Categorical
