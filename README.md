@@ -250,10 +250,8 @@ Data is available in folder human_eval_results/. It recorded the samples we used
 
 Released a colab notebook that contained the interface for conducting human evaluation. This can be used for reproducibility test.
 
-Jupyter notebook: [MemSum_Human_Evaluation.ipynb](MemSum_Human_Evaluation.ipynb)
-
-Run it on colab: 
-<!-- <a href="https://colab.research.google.com/github/nianlonggu/MemSum/blob/main/MemSum_Human_Evaluation.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a> -->
+Documentation: [MemSum_Human_Evaluation.md](MemSum_Human_Evaluation.md)
+Run it on google colab (recommended): <a href="https://colab.research.google.com/github/nianlonggu/MemSum/blob/main/MemSum_Human_Evaluation.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 ![human evaluation interface](images/human_evaluation_interface.png)
 
