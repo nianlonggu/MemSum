@@ -234,9 +234,9 @@ extracted_indices_batch[0]
 
 ## Training MemSum
 
-Please refer to the documentation XXX for the complete pipeline of training MemSum on custom dataset.
+Please refer to the documentation [Training_Pipeline.md](Training_Pipeline.md) for the complete pipeline of training MemSum on custom dataset.
 
-You can also directly run the training pipeline on google colab.
+You can also directly run the training pipeline on google colab: <a href="https://colab.research.google.com/github/nianlonggu/MemSum/blob/main/Training_Pipeline.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 
 ```python
