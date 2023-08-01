@@ -42,12 +42,13 @@ if __name__ == "__main__":
                     data["score"] = score_list
                         
                     if not( len(data["indices"]) == 0 or len(data["indices"]) != len(data["score"]) or len(data["text"]) == 0 or len(data["summary"]) == 0 ):
-                        fw.write( json.dumps( { 
-                                            "text": data["text"],
-                                            "summary": data["summary"],
-                                            "indices": data["indices"],
-                                            "score" : data["score"]
-                                        }  ) + "\n" )
+                        # fw.write( json.dumps( { 
+                        #                     "text": data["text"],
+                        #                     "summary": data["summary"],
+                        #                     "indices": data["indices"],
+                        #                     "score" : data["score"]
+                        #                 }  ) + "\n" )
+                        fw.write( json.dumps( data ) + "\n" )
                 except:
                     print("parsing error! skip.")
 
