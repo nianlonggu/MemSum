@@ -9,4 +9,3 @@ wget
 nltk
 ipywidgets
 scipy
-huggingface_hub
