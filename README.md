@@ -1,3 +1,4 @@
+[![DOI](https://img.shields.io/badge/DOI-10%2E18653%2Fv1%2F2022%2Eacl--long%2E450-blue)](http://dx.doi.org/10.18653/v1/2022.acl-long.450)
 # MemSum: Extractive Summarization of Long Documents Using Multi-Step Episodic Markov Decision Processes
 
 Code for ACL 2022 paper on the topic of long document extractive summarization: [MemSum: Extractive Summarization of Long Documents Using Multi-Step Episodic Markov Decision Processes](https://aclanthology.org/2022.acl-long.450/).
